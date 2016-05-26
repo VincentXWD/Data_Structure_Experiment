@@ -62,8 +62,7 @@ const int maxn = 1000010;
 typedef struct Node {
 	char c;
 	int w;
-	Node* l;
-	Node* r;
+	Node* l; Node* r;
 	Node() { l = NULL; r = NULL; }
 	Node(char cc, int tt, Node* ll = NULL, Node* rr = NULL) : c(cc), w(tt), l(ll), r(rr) {}
 }Node;
@@ -71,10 +70,9 @@ typedef struct Node {
 typedef struct Heap {
 	Heap() { size = 0; }
 	Node heap[maxh];
-	int pos;
-	int size;
+	int pos, size;
 	inline void init() {
-		pos = 0; Cls(heap);
+		size = pos = 0; Cls(heap);
 		heap[0] = Node(0, -inf);
 	}
 	inline void push(Node x) {
@@ -152,7 +150,7 @@ string decoding(string str) {
 
 int main() {
 	FRead();
-	printf("Please input n: ");
+	printf("Please input n: "); 
 	while(~Rint(n)) {
 		pq.init(); ret.clear();
 		printf("Please input %d character and frequency :\n", n);
